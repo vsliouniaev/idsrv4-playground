@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using AuthServer.Web.Configuration.Clients;
 using AuthServer.Web.Configuration.Resources;
+using AuthServer.Web.Configuration.Users;
 using IdentityServer4.Models;
+using IdentityServer4.Test;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,8 +18,9 @@ namespace AuthServer.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddIdentityServer()
-                .AddInMemoryClients(new List<Client>{new Client1()})
+                .AddInMemoryClients(new List<Client>{new Client1(), new RoClient()})
                 .AddInMemoryApiResources(new List<ApiResource>{new Api1()})
+                .AddTestUsers(new List<TestUser>{new Alice(), new Bob()})
                 .AddDeveloperSigningCredential();
         }
 

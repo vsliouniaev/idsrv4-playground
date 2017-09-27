@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Configuration\Users\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

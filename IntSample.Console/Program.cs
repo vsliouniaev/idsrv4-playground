@@ -13,12 +13,10 @@ namespace IntSample.Console
         {
             try
             {
-                var tokenResponse = await GetCredentials();
-
+                var tokenResponse = await GetCredentials(true);
                 WriteLine();
-                WriteLine("Got a token, calling api...");
+                WriteLine("Calling api...");
                 WriteLine();
-
                 await CallApi(tokenResponse);
 
             }
@@ -28,12 +26,11 @@ namespace IntSample.Console
             }
 
 
-            WriteLine();
             WriteLine("Press any key to exit...");
             ReadLine();
         }
 
-        static async Task<TokenResponse> GetCredentials()
+        static async Task<TokenResponse> GetCredentials(bool useResourceOwnerCredentials)
         {
             var disco = await DiscoveryClient.GetAsync("http://localhost:5000");
             if (disco.IsError)
@@ -42,8 +39,20 @@ namespace IntSample.Console
                 return null;
             }
 
-            var tokenClient = new TokenClient(disco.TokenEndpoint, "client", "secret");
-            var tokenResponse = await tokenClient.RequestClientCredentialsAsync("api1");
+            TokenResponse tokenResponse = null;
+
+            if (useResourceOwnerCredentials)
+            {
+                var tokenClient = new TokenClient(disco.TokenEndpoint, "ro.client", "secret");
+                tokenResponse = await tokenClient.RequestResourceOwnerPasswordAsync("alice", "pass");
+            }
+            else
+            {
+                var tokenClient = new TokenClient(disco.TokenEndpoint, "client", "secret");
+                tokenResponse = await tokenClient.RequestClientCredentialsAsync("api1");
+            }
+
+
             if (tokenResponse.IsError)
             {
                 WriteLine(tokenResponse.Error);
