@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthServer.Web", "AuthServer.Web\AuthServer.Web.csproj", "{0DE8B5F9-C91F-4BFC-A0F8-25F6E41F095A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthServer.Web", "AuthServer.Web\AuthServer.Web.csproj", "{0DE8B5F9-C91F-4BFC-A0F8-25F6E41F095A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IntegrationSamples", "IntegrationSamples", "{0DF73B73-7C11-40B9-9F47-AD6C504EB580}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntSample.Web", "IntSample.Web\IntSample.Web.csproj", "{8786E7BF-2C85-42EF-A37A-E029B34EBF41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{0DE8B5F9-C91F-4BFC-A0F8-25F6E41F095A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DE8B5F9-C91F-4BFC-A0F8-25F6E41F095A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DE8B5F9-C91F-4BFC-A0F8-25F6E41F095A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8786E7BF-2C85-42EF-A37A-E029B34EBF41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8786E7BF-2C85-42EF-A37A-E029B34EBF41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8786E7BF-2C85-42EF-A37A-E029B34EBF41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8786E7BF-2C85-42EF-A37A-E029B34EBF41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8786E7BF-2C85-42EF-A37A-E029B34EBF41} = {0DF73B73-7C11-40B9-9F47-AD6C504EB580}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {656C1F4E-AC46-451B-9258-92F2A3CF41B7}
