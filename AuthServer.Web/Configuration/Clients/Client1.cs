@@ -10,6 +10,10 @@ namespace AuthServer.Web.Configuration.Clients
             ClientId = "client";
             AllowedGrantTypes = GrantTypes.ClientCredentials;
             AllowedScopes = new List<string> {"api1"};
+            ClientSecrets = new List<Secret>
+            {
+                new Secret("secret".Sha256())
+            };
         }
     }
 }
